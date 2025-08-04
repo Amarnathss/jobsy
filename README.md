@@ -9,7 +9,7 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com/)
 [![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](https://expressjs.com/)
 
-![Demo](https://media.giphy.com/media/A8pRmkexvl9jCdzS5D/giphy.gif)
+
 
 [🚀 Live Demo](https://jobsy-demo.vercel.app) • [📖 Documentation](docs/) • [🐛 Report Bug](issues/) • [💡 Request Feature](issues/)
 
