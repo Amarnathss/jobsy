@@ -35,7 +35,17 @@ class UserController {
       });
     } catch (err) {
       console.log("Error being sent from backend", err);
-      return res.status(400).send(err);
+      
+      // Handle duplicate Aadhar number error
+      if (err.code === 11000 && err.keyPattern && err.keyPattern.aadharNumber) {
+        return res.status(400).json({
+          error: "A user with this Aadhar number already exists. Please use a different Aadhar number."
+        });
+      }
+      
+      return res.status(400).json({
+        error: err.message || "An error occurred while creating the user."
+      });
     }
   }
 }

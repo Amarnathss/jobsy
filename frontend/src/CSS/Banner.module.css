@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 .Jumbotron {
-  background-color: white;
+  background-color: #FFFFFF;
   margin-top: 30px;
   padding-top: 80px;
   margin-bottom: 0px;
@@ -13,29 +13,31 @@
   font-size: 70px;
   font-weight: 700;
   margin-top: 30px;
+  color: #1F2937;
 }
 
 .SubHeading {
-  color: #bd6997;
+  color: #2563EB;
   font-size: 1.5rem;
 }
 
 .TagLine {
   font-family: "Inter", sans-serif;
   font-size: 1.8rem;
+  color: #1F2937;
 }
 
 .Rectangle {
   height: 5px;
   width: 250px;
-  background-color: #008dc8;
+  background-color: #2563EB;
   margin-bottom: 20px;
 }
 
 .Button {
-  background-color: #008dc8;
+  background-color: #FACC15;
   border: none;
-  color: #fff;
+  color: #1F2937;
   text-align: center;
   border-radius: 50px;
   font-size: 20px;
@@ -47,6 +49,7 @@
   cursor: pointer;
   font-family: "Inter", sans-serif;
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  font-weight: 600;
 }
 
 .Button:hover {

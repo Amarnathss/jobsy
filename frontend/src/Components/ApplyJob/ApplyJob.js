@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
-import styles from "../../CSS/ApplyJob.module.css";
+import styles from "../../CSS/ModernApplyJob.module.css";
 import { withTranslation } from "react-i18next";
 
 class ApplyJob extends Component {
@@ -27,7 +27,7 @@ class ApplyJob extends Component {
     // instead of axios we can also use fetch() method of javascript to fetch api
     axios
       .post(   // This post method is used to insert data in mongoDB
-        `https://backendl-lmv3.onrender.com/jobs/${this.props.jobId}/apply`,
+        `http://localhost:3030/jobs/${this.props.jobId}/apply`,
         {
           aadharNumber: this.state.aadharNumber,
         }
@@ -79,8 +79,10 @@ class ApplyJob extends Component {
                 type="text"
                 name="aadharNumber"
                 value={aadharNumber}
-                placeholder="Enter your AADHAR Number"
+                placeholder={t("Enter your AADHAR Number")}
+                maxLength="12"
                 onChange={this.handleChange}
+                required
               />
             </Form.Group>
             <Button className={styles.Button} type="submit">

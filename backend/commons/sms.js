@@ -1,7 +1,22 @@
 const { twilio_sid, twilio_auth_token, admin_phone } = require("../config");
-const client = require("twilio")(twilio_sid, twilio_auth_token);
+
+let client = null;
+
+// Only initialize Twilio client if credentials are properly configured
+if (twilio_sid && twilio_auth_token && twilio_sid.startsWith('AC')) {
+  try {
+    client = require("twilio")(twilio_sid, twilio_auth_token);
+  } catch (error) {
+    console.log("Twilio initialization failed:", error.message);
+  }
+}
 
 function sms(to, msg) {
+  if (!client) {
+    console.log("SMS service not configured. Message would be sent to:", to, "Message:", msg);
+    return;
+  }
+  
   client.messages
     .create({
       body: msg,

@@ -12,11 +12,12 @@
   height: 350px;
   border-radius: 15px;
   box-shadow: 0px 2px 2px 0px #ccc;
+  background-color: #FFFFFF;
 }
 .CardTitle {
   font-size: 23px;
   text-align: left;
-  color: black;
+  color: #1F2937;
 }
 a:hover {
   text-decoration: none;
@@ -31,10 +32,10 @@ a:hover {
 
 .Background {
   margin-top: 5%;
-  background-color: #bd6997;
+  background-color: #F3F4F6;
 }
 .Opportunity {
-  color: #fff;
+  color: #1F2937;
   padding: 3%;
   padding-bottom: 3%;
   text-align: center;
@@ -44,13 +45,13 @@ a:hover {
 .Rectangle {
   height: 3px;
   width: 155px;
-  background-color: #008dc8;
+  background-color: #2563EB;
   margin-bottom: 20px;
 }
 .Title {
   margin-top: 35px;
   margin-left: 15px;
-  color: #008dc8;
+  color: #2563EB;
   font-size: 35px;
   font-family: "Poppins", sans-serif;
 }
@@ -81,16 +82,16 @@ a:hover {
   margin-left: 5px;
   margin-right: 5px;
   font-size: 18px;
-  color: black;
+  color: #1F2937;
   font-family: "Inter", sans-serif;
 }
 .shiftRight {
   float: right;
 }
 .Button {
-  background-color: #008dc8;
+  background-color: #FACC15;
   border: none;
-  color: #fff;
+  color: #1F2937;
   text-align: center;
   border-radius: 50px;
   font-size: 20px;
@@ -102,9 +103,10 @@ a:hover {
   font-family: "Inter", sans-serif;
   box-shadow: 0 5px 10px -8px rgba(0, 0, 0, 0.7);
   align-self: center;
+  font-weight: 600;
 }
 .Button:hover {
-  background-color: #008dc8;
+  background-color: #FACC15;
   padding-right: 35px;
   padding-left: 35px;
 }

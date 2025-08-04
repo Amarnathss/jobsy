@@ -4,7 +4,7 @@ let UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    minLength: 5,
+    minLength: 2,
     maxLength: 50,
   },
   // password: String,
@@ -36,8 +36,8 @@ let UserSchema = new mongoose.Schema({
     default: "OTHERS",
   },
   YOE: {
-    type: Number,
-    defaut: 0,
+    type: String,
+    default: "0",
   },
   otherSkills: {
     type: String,

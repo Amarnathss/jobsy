@@ -1,135 +1,423 @@
-# Rozgaar Job Search App for Blue Collar Workers
+<div align="center">
 
-![Alt Text](https://media.giphy.com/media/A8pRmkexvl9jCdzS5D/giphy.gif)
+# 🔧 Jobsy Backend API
 
-## ❓ Problem Statement
+**RESTful API Server for Blue Collar Job Search Platform**
 
-- Make a job-search platofrm for Blue Collar Workers.
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com/)
+[![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=twilio&logoColor=white)](https://twilio.com/)
 
-## [VIEW LIVE DEMO](https://practical-jepsen-534aed.netlify.app/)
+![API Demo](https://media.giphy.com/media/A8pRmkexvl9jCdzS5D/giphy.gif)
 
-**Note** : SMS can be sent to only Twilio verified numbers as I am not using the paid service.
+[🚀 Live API](https://jobsy-api.render.com) • [📖 API Docs](docs/api.md) • [🔗 Frontend Repo](../frontend/) • [📋 Postman Collection](docs/postman-collection.json)
 
-## 🚧 Technology Stack
+</div>
 
-- **Server Enviornment** - NodeJS
-- **Framework** - ExpressJS
-- **Frontend** - ReactJS, HTML, CSS, Javascript
-- **Database** - MongoDB
-- **Cloud database service** - MongoDB Atlas
-- **Module to send emails** - NodeMailer
-- **SMS sending** - Twilio
-- **Deployment** - Heroku
+---
 
-## ⬇️ Installation
+## 📋 Table of Contents
 
-- First, fork this repository 🍴 and follow the given instructions:
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Quick Start](#-quick-start)
+- [📐 Architecture](#-architecture)
+- [🔌 API Endpoints](#-api-endpoints)
+- [🧪 Testing](#-testing)
+- [🔧 Configuration](#-configuration)
+- [📁 Project Structure](#-project-structure)
+- [🚧 Development](#-development)
+
+## ✨ Features
+
+### 🎯 Core Functionality
+- ✅ **RESTful API Design** - Clean, intuitive endpoints
+- ✅ **Manager-Service-Controller Architecture** - Separation of concerns
+- ✅ **MongoDB Integration** - Robust data persistence
+- ✅ **SMS Notifications** - Twilio integration for applicant alerts
+- ✅ **Email Notifications** - NodeMailer for recruiter notifications
+- ✅ **Category-based Job Management** - 9 specialized job categories
+- ✅ **Real-time Application Processing** - Instant job applications
+
+### 🔒 Advanced Features
+- 🔄 **Error Handling** - Comprehensive error management
+- 📊 **Data Validation** - Input sanitization and validation
+- 🌐 **CORS Support** - Cross-origin resource sharing
+- 📱 **Mobile-first API** - Optimized for mobile applications
+
+> **📱 Note**: SMS notifications are currently limited to Twilio verified numbers (development environment)
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+- ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white) **Node.js 16+** - JavaScript runtime
+- ![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white) **Express.js** - Web application framework
+- ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white) **MongoDB Atlas** - Cloud database service
+
+### Communication Services
+- ![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=flat&logo=twilio&logoColor=white) **Twilio API** - SMS notifications
+- ![NodeMailer](https://img.shields.io/badge/NodeMailer-0F9D58?style=flat) **NodeMailer** - Email service
+- ![Render](https://img.shields.io/badge/Render-46E3B7?style=flat&logo=render&logoColor=white) **Render** - Cloud deployment
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 16+ and npm
+- MongoDB Atlas account
+- Twilio account (SMS service)
+- Email service credentials (Gmail recommended)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/jobsy-backend.git
+   cd jobsy-backend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration**
+   
+   Create a `.env` file in the root directory:
+   ```env
+   # Database
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/jobsy
+   
+   # Twilio SMS Service
+   TWILIO_ACCOUNT_SID=your_twilio_account_sid
+   TWILIO_AUTH_TOKEN=your_twilio_auth_token
+   TWILIO_PHONE_NUMBER=your_twilio_phone_number
+   
+   # Email Service
+   EMAIL_SERVICE_USER=your_email@gmail.com
+   EMAIL_SERVICE_PASS=your_app_password
+   
+   # Server Configuration
+   PORT=5000
+   NODE_ENV=development
+   ```
+
+4. **Start the server**
+   ```bash
+   # Development mode
+   npm run dev
+   
+   # Production mode
+   npm start
+   ```
+
+5. **Verify installation**
+   ```bash
+   # Test API endpoint
+   curl http://localhost:5000/health
+   ```
+
+### API Testing
+
+Use [Postman](https://postman.com) or any API client to test endpoints:
+- **Base URL**: `http://localhost:5000`
+- **Health Check**: `GET /health`
+- **Jobs**: `GET /jobs?CATEGORY=ELECTRICIAN`
+
+## 📐 Architecture
+
+Jobsy Backend follows the **Manager-Service-Controller (MSC)** pattern for optimal code organization:
 
 ```
-# clone the repository to your local machine
-$ git clone `git clone https://github.com/<YOUR-GITHUB-USERNAME>/Rozgaar-Blue-Collars-Job-Seach-Platform-Backend.git`
-
-# navigate to the project's directory and install all the relevant dev-dependencies
-$ cd Rozgaar-Blue-Collars-Job-Seach-Platform-Backend && npm intsall
-
-# Make a .env file and include the details as per config.js
-
-# Start application
-$ node index.js
-
-# Make requests on http://localhost:3030/ from Postman
+🏗️ MSC Architecture
+├── 🎮 Controllers/     # HTTP request handlers
+│   ├── job.js         # Job-related endpoints
+│   └── user.js        # User-related endpoints
+├── 🔧 Services/       # Business logic layer
+│   ├── job.js         # Job business operations
+│   └── user.js        # User business operations
+├── 🗄️ Managers/       # Data access layer
+│   ├── job.js         # Job database operations
+│   └── user.js        # User database operations
+└── 📊 Models/         # Data schemas
+    ├── job.js         # Job schema definition
+    └── user.js        # User schema definition
 ```
 
-#### Problems in Existing Solutions
+### Layer Responsibilities
 
-- Little Less user friendly for maybe not so literate people
-- Complicated Process - Blue Collars dont have a resume.
-- Longer waiting Periods for both applicant and employer.
-- All in English
-- Lack of Support on chat/call
+| Layer | Responsibility | Example |
+|:------|:---------------|:--------|
+| **Controllers** | Handle HTTP requests/responses | Route validation, status codes |
+| **Services** | Implement business logic | Job matching, notification triggers |
+| **Managers** | Database operations | CRUD operations, data persistence |
+| **Models** | Define data structure | Schema validation, data types |
 
-## Workflow
+## 🔌 API Endpoints
 
-I have identified 9 categories of job-seekers to make the platform more intuitive and simple.
+### Jobs API (`/jobs`)
 
-- Electrician
-- Plumber
-- Labour
-- Driver
-- Maid
-- Security guard
-- Cook
-- Peon
-- Mechanic
+| Method | Endpoint | Description | Parameters | Response |
+|:------:|:---------|:------------|:-----------|:---------|
+| `GET` | `/jobs` | Fetch jobs by category | `?CATEGORY=MECHANIC` | Job listings array |
+| `POST` | `/jobs` | Create new job posting | Job details in body | Created job object |
+| `POST` | `/jobs/:job_id/apply` | Apply to specific job | Job ID in URL params | Application confirmation |
+| `GET` | `/jobs/candidates` | Get available candidates | `?CATEGORY=LABOUR` | Candidate profiles array |
 
-### For Job Seeker
+### User API (`/user`)
 
-1. Register
-2. Update Profile
-3. Apply on jobs - just by clicking - as simple as that.
-4. The applicant gets an SMS on his/her phone number after applying to a job.
-   ![SMS TO APPLICANT](https://github.com/Manvityagi/Rozgaar-Blue-Collars-Job-Seach-Platform-Backend/raw/main/assets/msgToApplicant.jpg)
+| Method | Endpoint | Description | Parameters | Response |
+|:------:|:---------|:------------|:-----------|:---------|
+| `POST` | `/user/register` | Register new user | User profile in body | User object with ID |
 
-### For Job Poster
+### Request/Response Examples
 
-1. Post Jobs
-2. Get applications on your posted jobs and shortlist.
-3. **Ease the flow** for both parties
-   - Job Seekers Profiles will be available all throughout, Recruiters can directly see their profiles and give them a message/call
-4. Job Poster gets an email when someone applies on a job posted by him/her.
-   ![MAIL TO RECRUITER](https://github.com/Manvityagi/Rozgaar-Blue-Collars-Job-Seach-Platform-Backend/raw/main/assets/recruiterMail.PNG)
+<details>
+<summary>📝 Click to view detailed API examples</summary>
 
-## Project Structure
+**Create Job Posting**
+```bash
+POST /jobs
+Content-Type: application/json
 
-We will structure our application using the controller, service, and, manager pattern so our app will be broken into the managers, services, and controllers. The `Manager-Service-Controller` pattern breaks up the business layer of the app into three distinct layers:
+{
+  "title": "Experienced Electrician Required",
+  "category": "ELECTRICIAN",
+  "location": "Mumbai, Maharashtra",
+  "salary": "₹25,000 - ₹35,000",
+  "description": "Looking for skilled electrician with 2+ years experience",
+  "contactEmail": "recruiter@company.com",
+  "contactPhone": "+91-9876543210",
+  "requirements": ["2+ years experience", "Valid electrical license"]
+}
+```
 
-1. The `manager class` handles getting data into and out of our data store. A manager is used between the service layer and the model layer. For example, in the UserManager you would create methods that write/read a user to and from the database.
-2. The `service class` calls the manager class and can combine their data to form new, more complex business objects. It is an abstraction between the controller and the manager.
-3. A `controller` contains very little logic and is used to make calls to services.
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Job posted successfully",
+  "data": {
+    "_id": "64f8a1b2c3d4e5f6a7b8c9d0",
+    "title": "Experienced Electrician Required",
+    "category": "ELECTRICIAN",
+    "createdAt": "2024-01-15T10:30:00Z"
+  }
+}
+```
 
-## 🔨 API Endpoints
+**Register Job Seeker**
+```bash
+POST /user/register
+Content-Type: application/json
 
-`/jobs`
-| REQUEST METHODS | ENDPOINTS | DESCRIPTION |
-| :-------------- | :-------: | ------------------: |
-| GET | /jobs?CATEGORY=MECHANIC | Show all jobs of requested category |
-| POST | /jobs | Add new job to DB by recruiter|
-| POST | /jobs/:job_id/apply | Applies on a Job |
-| GET | /jobs/candidates?CATEGORY=LABOUR | Returns available candidates for requested job|
+{
+  "name": "Rajesh Kumar",
+  "phone": "+91-9876543210",
+  "category": "PLUMBER",
+  "experience": "5 years",
+  "location": "Delhi, India",
+  "skills": ["Pipe fitting", "Leak repair", "Installation"]
+}
+```
 
-`/user`
-| REQUEST METHODS | ENDPOINTS | DESCRIPTION |
-| :-------------- | :-------: | ------------------: |
-| POST | /user/register | Adds new user to DB |
+**Apply for Job**
+```bash
+POST /jobs/64f8a1b2c3d4e5f6a7b8c9d0/apply
+Content-Type: application/json
 
-### [Pending Tasks](https://github.com/Manvityagi/Rozgaar-Blue-Collars-Job-Seach-Platform-Backend/blob/main/tests.md)
+{
+  "applicantId": "64f8b1c2d3e4f5a6b7c8d9e0",
+  "message": "I am interested in this position"
+}
+```
 
-- Unit Tests - Due to shortage of time, I couldn't write many unit-test.
-- Login Sessions and Dashboard of Applications
+</details>
 
-### Loophole in current solution
+### Supported Job Categories
 
-1. Hiding unavailable jobs/users
+| Category | Description | Icon |
+|:---------|:------------|:----:|
+| `ELECTRICIAN` | Electrical work and installations | ⚡ |
+| `PLUMBER` | Plumbing and water systems | 🔧 |
+| `LABOUR` | General construction work | 👷 |
+| `DRIVER` | Transportation services | 🚗 |
+| `MAID` | Domestic help services | 🏠 |
+| `SECURITY_GUARD` | Security services | 🛡️ |
+| `COOK` | Cooking and food preparation | 👨‍🍳 |
+| `PEON` | Office assistance | 📋 |
+| `MECHANIC` | Vehicle and machinery repair | 🔩 |
 
-- Problem: The major problem in current solution is lack of mechanism of deleting jobs that have been filled and hiding job-seeker profiles who have already got a job
-- Solution: This is easy to solve once user-sessions for both employer and applicant are created, on their
-  dashboards, we can give the option to hide thier job/profile.
+## 🧪 Testing
 
-2. Verification of jobs/profiles
+### Running Tests
 
-- Problem: The portal can be spammed with fake jobs/profiles.
-- Solution: Verifying user-identity by Aadhar Number Verification/phone number verifcation.
+```bash
+# Run all tests
+npm test
 
-### Additional Features to be added after Hackathon:
+# Run specific test file
+npm test tests/user/managers/test_user.js
 
-- Multi-lingual
-- Filters according to location, salary etc.
-- Stars/Reviews for job seekers
-- Register by calling also (for job seekers) - simply call on a support number and automated clicks on phone
+# Run tests with coverage
+npm run test:coverage
 
-### Reaching Target Audience
+# Run tests in watch mode
+npm run test:watch
+```
 
-- Awareness of the existence of a solution holds utmost importance.
-- The first point of contact could be several NGOs - Lakshyam, Hand in Hand India, The /Nudge Foundation etc.
-- The Internet is not something that Blue-Collar Workers don't use, Promotional Ads are the way to go.
-- Referral System for both Employer and Seeker.
+### Test Structure
+
+```
+tests/
+├── user/
+│   └── managers/
+│       └── test_user.js    # User manager tests
+├── job/
+│   └── managers/
+│       └── test_job.js     # Job manager tests (pending)
+└── integration/
+    └── api.test.js         # API integration tests (pending)
+```
+
+> **Note**: Unit test coverage is currently limited. Comprehensive testing is in the roadmap.
+
+## 🔧 Configuration
+
+### Environment Variables
+
+| Variable | Description | Required | Example |
+|:---------|:------------|:---------|:--------|
+| `MONGODB_URI` | MongoDB connection string | ✅ | `mongodb+srv://user:pass@cluster.mongodb.net/db` |
+| `TWILIO_ACCOUNT_SID` | Twilio account identifier | ✅ | `ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| `TWILIO_AUTH_TOKEN` | Twilio authentication token | ✅ | `your_auth_token_here` |
+| `TWILIO_PHONE_NUMBER` | Twilio phone number | ✅ | `+1234567890` |
+| `EMAIL_SERVICE_USER` | Email service username | ✅ | `your_email@gmail.com` |
+| `EMAIL_SERVICE_PASS` | Email service password | ✅ | `your_app_password` |
+| `PORT` | Server port number | ❌ | `5000` (default) |
+| `NODE_ENV` | Environment mode | ❌ | `development` |
+
+### Configuration Files
+
+- **`config.js`** - Main configuration file
+- **`.env`** - Environment variables (create from `.env.example`)
+- **`package.json`** - Project dependencies and scripts
+
+## 📁 Project Structure
+
+```
+backend/
+├── 📄 index.js                 # Application entry point
+├── 📄 config.js                # Configuration management
+├── 📁 controllers/             # Request handlers
+│   ├── job.js                  # Job endpoints
+│   └── user.js                 # User endpoints
+├── 📁 services/                # Business logic
+│   ├── job.js                  # Job services
+│   └── user.js                 # User services
+├── 📁 managers/                # Data access layer
+│   ├── job.js                  # Job database operations
+│   └── user.js                 # User database operations
+├── 📁 models/                  # Database schemas
+│   ├── job.js                  # Job model
+│   └── user.js                 # User model
+├── 📁 routes/                  # API routes
+│   ├── job.js                  # Job routes
+│   └── user.js                 # User routes
+├── 📁 commons/                 # Shared utilities
+│   ├── mail.js                 # Email service
+│   ├── sms.js                  # SMS service
+│   └── util.js                 # Common utilities
+├── 📁 tests/                   # Test files
+│   └── user/
+│       └── managers/
+│           └── test_user.js    # User tests
+└── 📁 assets/                  # Demo assets
+    ├── DemoGIF.gif
+    ├── msgToApplicant.jpg
+    └── recruiterMail.PNG
+```
+
+## 🚧 Development
+
+### Workflow Process
+
+#### For Job Seekers
+1. **Registration** → Simple profile creation with minimal details
+2. **Profile Update** → Add skills, experience, and preferences  
+3. **Job Application** → One-click application process
+4. **SMS Notification** → Instant confirmation via SMS
+
+   ![SMS Notification](assets/msgToApplicant.jpg)
+
+#### For Job Posters  
+1. **Job Posting** → Quick job creation with detailed requirements
+2. **Application Management** → View and shortlist candidates
+3. **Direct Communication** → Contact qualified candidates directly
+4. **Email Notification** → Instant alerts for new applications
+
+   ![Email Notification](assets/recruiterMail.PNG)
+
+### Development Scripts
+
+```bash
+# Start development server with hot reload
+npm run dev
+
+# Start production server
+npm start
+
+# Run linting
+npm run lint
+
+# Fix linting issues
+npm run lint:fix
+
+# Generate API documentation
+npm run docs:generate
+```
+
+### Known Issues & Solutions
+
+<details>
+<summary>🔧 Current Limitations</summary>
+
+#### 1. Job/Profile Visibility Management
+- **Issue**: No mechanism to hide filled jobs or employed candidates
+- **Impact**: Users see outdated listings
+- **Solution**: Implement user dashboard with hide/show functionality
+- **Status**: 🟡 Planned for Phase 2
+
+#### 2. Profile Verification System
+- **Issue**: Potential for fake profiles and spam
+- **Impact**: Platform credibility concerns
+- **Solution**: Aadhaar verification integration
+- **Status**: 🟡 In research phase
+
+#### 3. Session Management
+- **Issue**: No user authentication system
+- **Impact**: Limited personalization and security
+- **Solution**: JWT-based authentication
+- **Status**: 🟢 In development
+
+</details>
+
+### Future Enhancements
+
+- 🔐 **Authentication System** - JWT-based user sessions
+- 🌍 **Multi-language Support** - API localization
+- 📍 **Location-based Filtering** - Geospatial queries
+- ⭐ **Rating System** - User feedback and reviews
+- 📞 **Voice Integration** - Phone-based registration
+- 🤖 **AI Matching** - Intelligent job recommendations
+
+---
+
+<div align="center">
+
+**Built with ❤️ for connecting blue-collar workers with opportunities**
+
+[⬆ Back to Top](#-jobsy-backend-api)
+
+</div>

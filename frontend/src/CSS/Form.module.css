@@ -1,8 +1,8 @@
 .CardTitle {
   font-size: 33px;
   text-align: left;
-  color: black;
-  border-bottom: #008dc8 solid 3px;
+  color: #1F2937;
+  border-bottom: #2563EB solid 3px;
   display: table-cell;
 }
 
@@ -25,31 +25,31 @@ a:hover {
 .RectangleEligibility {
   height: 5px;
   width: 105px;
-  background-color: #008dc8;
+  background-color: #2563EB;
   margin-bottom: 20px;
 }
 .RectangleBasicDetails {
   height: 3px;
   width: 300px;
-  background-color: #008dc8;
+  background-color: #2563EB;
   margin-bottom: 20px;
 }
 .RectangleJobDescription {
   height: 5px;
   width: 195px;
-  background-color: #008dc8;
+  background-color: #2563EB;
   margin-bottom: 20px;
 }
 .RectangleRounds {
   height: 5px;
   width: 95px;
-  background-color: #008dc8;
+  background-color: #2563EB;
   margin-bottom: 20px;
 }
 .Button {
-  background-color: #008dc8;
+  background-color: #FACC15;
   border: none;
-  color: #fff;
+  color: #1F2937;
   text-align: center;
   border-radius: 50px;
   font-size: 16px;
@@ -60,6 +60,7 @@ a:hover {
   transition: all 0.5s;
   cursor: pointer;
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  font-weight: 600;
 }
 
 .ErrorMessage {

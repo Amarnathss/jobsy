@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../CSS/Banner.module.css";
+import styles from "../../../CSS/ModernHomePage.module.css";
 import { Container, Row, Col, Jumbotron, Image } from "react-bootstrap";
 // Jumbotron: was introduced in Bootstrap 3 as a big padded box for calling extra attention to some special content or information.A lightweight, flexible component that can optionally extend the entire viewport to showcase key content on your site.
 import { Link } from "react-router-dom";
@@ -12,62 +12,60 @@ import { withTranslation } from "react-i18next";
 
 function Banner({ t }) {
   return (
-    // fluid jumbotron is used to span the width of the page i.e, To make the jumbotron full width, and without rounded corners.
-    <Jumbotron id="home" className={styles.Jumbotron} fluid>
-
-      <Container className={styles.Container}>
-        {/*About Container:https://www.geeksforgeeks.org/react-bootstrap-container-row-and-col-component/ */}
-        <Row>
-          <Col md={6} lg={6} className={styles.leftCol}>
-            <h1 className={styles.Heading}>
-              {t("Roz")}
-              <span style={{ color: "#008dc8" }}>{t("gaar")} </span>
+    <div id="home" className={styles.banner}>
+      <Container className={styles.bannerContent}>
+        <Row className="align-items-center min-vh-100">
+          <Col md={6} lg={6} className="text-left">
+            <h1 className={styles.bannerTitle}>
+              {t("Job")}
+              <span style={{ color: "#FACC15" }}>{t("sy")} </span>
             </h1>
-            <div className={styles.Rectangle} />
-            <h2 className={styles.TagLine}>
+            <div style={{ width: "100px", height: "4px", background: "linear-gradient(135deg, #2563EB, #FACC15)", borderRadius: "2px", marginBottom: "30px" }}></div>
+            <h2 className={styles.bannerSubtitle}>
               {t("Join your hands together.")}
-              <br></br>
+              <br />
               {t("Not to beg, but to welcome")}
-              <br></br>
+              <br />
               {t("new opportunities!")}
             </h2>
-            <Row>
+            <Row className="mt-4">
               <Col>
-                <p className={styles.SubHeading}>{t("Employer")}</p>
-                <p style={{ textAlign: "justify" }}>
-                  <a href="#categories">{t("See available candidates")}</a>{" "}
-                  {t("or")} <Link to="/jobs/post">{t("Post New Job")}</Link>{" "}
-                  {t("if you don't find any")}
-                  {t("suitable candidates")}
-                </p>
+                <div className={styles.modernCard} style={{ background: "rgba(255, 255, 255, 0.1)", backdropFilter: "blur(20px)", border: "1px solid rgba(255, 255, 255, 0.2)" }}>
+                  <h4 className={styles.cardTitle} style={{ color: "white", fontSize: "1.3rem" }}>{t("Employer")}</h4>
+                  <p style={{ color: "rgba(255, 255, 255, 0.9)", fontSize: "0.95rem", lineHeight: "1.6" }}>
+                    <a href="#categories" style={{ color: "#FACC15", textDecoration: "none", fontWeight: "600" }}>{t("See available candidates")}</a>{" "}
+                    {t("or")} <Link to="/jobs/post" style={{ color: "#FACC15", textDecoration: "none", fontWeight: "600" }}>{t("Post New Job")}</Link>{" "}
+                    {t("if you don't find any suitable candidates")}
+                  </p>
+                </div>
               </Col>
               <Col>
-                <p className={styles.SubHeading}>{t("Job Seeker")}</p>
-                <p style={{ textAlign: "justify" }}>
-
-                  {/* Justify: Like of newspaper and every left and right margin is staright */}
-                  <Link to="/user/register">{t("Register")}</Link>{" "}
-                  {t("your profile and get hired or manually")}{" "}
-                  <a href="#categories"> {t("apply")}</a> {t("to jobs.")}
-                </p>
+                <div className={styles.modernCard} style={{ background: "rgba(255, 255, 255, 0.1)", backdropFilter: "blur(20px)", border: "1px solid rgba(255, 255, 255, 0.2)" }}>
+                  <h4 className={styles.cardTitle} style={{ color: "white", fontSize: "1.3rem" }}>{t("Job Seeker")}</h4>
+                  <p style={{ color: "rgba(255, 255, 255, 0.9)", fontSize: "0.95rem", lineHeight: "1.6" }}>
+                    <Link to="/user/register" style={{ color: "#FACC15", textDecoration: "none", fontWeight: "600" }}>{t("Register")}</Link>{" "}
+                    {t("your profile and get hired or manually")}{" "}
+                    <a href="#categories" style={{ color: "#FACC15", textDecoration: "none", fontWeight: "600" }}> {t("apply")}</a> {t("to jobs.")}
+                  </p>
+                </div>
               </Col>
             </Row>
 
             <a href="#categories">
-              <button className={styles.Button}>{t("Explore")}</button>
+              <button className={styles.sectionButton} style={{ marginTop: "30px" }}>{t("Explore")}</button>
             </a>
           </Col>
-          <Col md={6} lg={6} className={styles.rightCol}>
+          <Col md={6} lg={6} className="text-center">
             <Image
-              className={styles.BannerImage}
               src={BannerImage}
               alt="BannerImage"
               fluid
+              style={{ maxHeight: "500px", filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2))" }}
             />
           </Col>
         </Row>
       </Container>
-    </Jumbotron>
+    </div>
   );
 }
 

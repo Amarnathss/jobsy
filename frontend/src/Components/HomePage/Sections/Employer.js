@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-// import EmployerCard from "./EmployerCard";
 import EmployerData from "./EmployerData";
-import { Container, Jumbotron, Row } from "react-bootstrap";
-import styles from "../../../CSS/Procedure.module.css";
+import { Container } from "react-bootstrap";
+import styles from "../../../CSS/ModernProcedure.module.css";
 import { withTranslation } from "react-i18next";
-import { Card } from "react-bootstrap";
 
 class KnowAbout extends Component {
   constructor() {
@@ -21,149 +19,95 @@ class KnowAbout extends Component {
     // });
 
     return (
-      <Jumbotron className={styles.Jumbotron}>
+      <div className={styles.Jumbotron}>
         <Container fluid="sm">
           <h2 className={styles.Heading}>
             {t("How we work for")}
             <span className={styles.About}> {t("Employer")} </span>?
           </h2>
-          <Row
-            style={{ marginTop: "50px", justifyContent: "space-evenly" }}
-          >
-            {/* {EmployerData} */}
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "12rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+          <div className={styles.Row}>
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/user.png")}
-                  alt="Image"
+                  alt="Register Yourself"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("Register Yourself")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("Register Yourself")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Create your company profile")}
+                </p>
+              </div>
             </div>
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "12rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+            
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/view.png")}
-                  alt="Image"
+                  alt="View Candidates"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("View Candidates")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("View Candidates")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Browse qualified candidates")}
+                </p>
+              </div>
             </div>
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "12rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+            
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/job.png")}
-                  alt="Image"
+                  alt="Post Openings"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("Post Openings")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("Post Openings")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Create job postings easily")}
+                </p>
+              </div>
             </div>
 
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "12rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/check.png")}
-                  alt="Image"
+                  alt="Get Applicants"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("Get Applicants")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("Get Applicants")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Receive job applications")}
+                </p>
+              </div>
             </div>
 
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "12rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/thumb.png")}
-                  alt="Image"
+                  alt="Shortlist & Hire"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  {" "}
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("Shortlist & Hire")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("Shortlist & Hire")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Select and hire candidates")}
+                </p>
+              </div>
             </div>
-
-          
-          </Row>
+          </div>
         </Container>
-      </Jumbotron>
+      </div>
     );
   }
 }

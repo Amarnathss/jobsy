@@ -1,8 +1,7 @@
 import React from "react";
-import { Container, Jumbotron, Row, Col, Image } from "react-bootstrap";
+import { Container, Jumbotron, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Logo from "../../Assets/logo.PNG";
-import styles from "../../CSS/Footer.module.css";
+import styles from "../../CSS/ModernFooter.module.css";
 import {
   FaLinkedinIn,
   FaInstagram,
@@ -21,7 +20,12 @@ function Footer() {
       <Container className={styles.Container}>
         <Row className={styles.Top1}>
           <Col>
-            <Image className={styles.Logo} src={Logo} alt="Logo" />
+            <div className={styles.Logo}>
+              <span style={{ fontSize: "35px", fontFamily: "Poppins, sans-serif", fontWeight: "390" }}>
+                {t("Job")}
+                <span style={{ color: "#FACC15" }}>{t("sy")} </span>
+              </span>
+            </div>
           </Col>
           <Col className={styles.Column}>
             <h5 className={styles.Border}> {t("links")} </h5>
@@ -103,7 +107,7 @@ function Footer() {
           <Col>
             <p>
               {" "}
-              <BiCopyright /> 2021 Rozgaar | All rights reserved.
+              <BiCopyright /> 2021 Jobsy | All rights reserved.
             </p>
           </Col>
           <Col className={styles.SocialLinks}>
@@ -125,7 +129,7 @@ function Footer() {
           <Col>
             <p className={styles.Para}>
               {" "}
-              <BiCopyright /> 2020 Girl Code It | All rights reserved.
+              <BiCopyright /> 2021 Jobsy | All rights reserved.
             </p>
           </Col>
         </Row>

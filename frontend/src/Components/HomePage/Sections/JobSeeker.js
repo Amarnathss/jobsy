@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-// import JobSeekerCard from "./JobSeekerCard";
 import JobSeekerData from "./JobSeekerData";
-import { Container, Jumbotron, Row } from "react-bootstrap";
-import styles from "../../../CSS/Procedure.module.css";
+import { Container } from "react-bootstrap";
+import styles from "../../../CSS/ModernProcedure.module.css";
 import { withTranslation } from "react-i18next";
-import { Card } from "react-bootstrap";
 
 // extends: Inheritance uses the keyword extends to allow any component to use the properties and methods of another component connected with the parent. Using the extends keyword, you can allow the current component to access all the component's properties, including the function, and trigger it from the child component.
 //  In function component we cannot include life cycle method directly and can be implemented using hooks.
@@ -30,122 +28,79 @@ class KnowAbout extends Component {
     // });
 
     return (
-      <Jumbotron className={styles.Jumbotron}>
+      <div className={styles.Jumbotron}>
         <Container fluid="sm">
           <h2 id="howwework" className={styles.Heading}>
             {t("How we work for")}
             <span className={styles.About}> {t("Job Seeker")} </span>?
-            {/* Both the tags (<div> and <span>) are used to represent the part of the webpage, <div> tag is used a as block part of the webpage and <span> tag */}
           </h2>
-          <Row
-            style={{ marginTop: "50px", justifyContent: "space-evenly" }}
-          >
-            {/* {JobSeekerData} */}
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "10.5rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+          <div className={styles.Row}>
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/user.png")}
-                  alt="Image"
+                  alt="Register"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("Register")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("Register")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Create your profile with basic details")}
+                </p>
+              </div>
             </div>
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "10.5rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+            
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/search.png")}
-                  alt="Image"
+                  alt="View Jobs"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("View Jobs")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("View Jobs")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Browse available job opportunities")}
+                </p>
+              </div>
             </div>
 
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "10.5rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/check.png")}
-                  alt="Image"
+                  alt="Apply"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("Apply")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("Apply")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Apply to jobs with one click")}
+                </p>
+              </div>
             </div>
 
-            <div id="procedure" className={styles.Box}>
-              <Card
-                style={{
-                  width: "10.5rem",
-                  borderRadius: "50%",
-                  border: "#bd6997 solid 4px",
-                  marginRight: "0px",
-                  textAlign: "center"
-                }}
-              >
-                <Card.Img
-                  variant="top"
+            <div className={styles.Box}>
+              <div className="card">
+                <img
                   src={require("../../../Assets/thumb.png")}
-                  alt="Image"
+                  alt="Get Hired"
                   className={styles.CardImage}
                 />
-                <Card.Body>
-                  <div className={styles.Title}>
-                    <Card.Title className={styles.CardTitle}>
-                      {t("Get Hired")}
-                    </Card.Title>
-                  </div>
-                </Card.Body>
-              </Card>
+                <h4 className={styles.CardTitle}>
+                  {t("Get Hired")}
+                </h4>
+                <p className={styles.CardDescription}>
+                  {t("Receive job offers and start working")}
+                </p>
+              </div>
             </div>
-          </Row>
+          </div>
         </Container>
-      </Jumbotron>
+      </div>
     );
   }
 }

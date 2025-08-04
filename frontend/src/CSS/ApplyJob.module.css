@@ -14,21 +14,21 @@
   height: auto;
   max-height: 80vh;
   margin-top: calc(120vh - 85vh - 20px);
-  background: #fff;
+  background: #FFFFFF;
   border-radius: 4px;
   padding: 20px;
-  border: 1px solid #999;
+  border: 1px solid #F3F4F6;
   overflow: auto;
 }
 
 a {
-  color: #008dc8;
+  color: #2563EB;
 }
 
 .Button {
-  background-color: #008dc8;
+  background-color: #FACC15;
   border: none;
-  color: #fff;
+  color: #1F2937;
   text-align: center;
   border-radius: 50px;
   font-size: 16px;
@@ -40,12 +40,13 @@ a {
   font-family: "Inter", sans-serif;
   box-shadow: 0 5px 10px -8px rgba(0, 0, 0, 0.7);
   align-self: center;
+  font-weight: 600;
 }
 
 .Button:hover {
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #008dc8;
+  background-color: #FACC15;
 }
 
 .CloseIcon {

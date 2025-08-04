@@ -8,11 +8,11 @@ import {
   OverlayTrigger,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import LanguageSelector from "../../LanguageSelector/language.js";
 import { HiMicrophone } from "react-icons/hi";
 import SpeechRecognition from "react-speech-recognition";
 // import { AiOutlineSearch } from "react-icons/ai"
 import { withTranslation } from "react-i18next";
-import LanguageSelector from "../../LanguageSelector/language.js";
 
 const renderTooltip = (props) => (
   <Tooltip id="button-tooltip" {...props}>
@@ -25,8 +25,8 @@ const navbar = ({ t }) => {
     <Navbar fixed="top" bg="light" expand="lg" className={styles.NavBar}>
       <Navbar.Brand className={styles.Logo}>
         <Link to="/" className={styles.Brand} style={{ fontSize: "35px" }}>
-          {t("Roz")}
-          <span style={{ color: "#008dc8" }}>{t("gaar")} </span>
+          {t("Job")}
+          <span style={{ color: "#2563EB" }}>{t("sy")} </span>
         </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -93,7 +93,7 @@ const navbar = ({ t }) => {
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
-      <LanguageSelector langtype={false} />
+      <LanguageSelector position="navbar" />
       <OverlayTrigger
         placement="bottom"
         delay={{ show: 250, hide: 400 }}

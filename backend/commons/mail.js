@@ -3,6 +3,11 @@ const nodemailer = require("nodemailer");
 const { admin_mail, admin_mail_pass } = require("../config");
 
 function mail(to, msg) {
+  if (!admin_mail || !admin_mail_pass) {
+    console.log("Email service not configured. Email would be sent to:", to, "Message:", msg);
+    return;
+  }
+
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
   const transporter = nodemailer.createTransport({

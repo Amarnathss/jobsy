@@ -13,16 +13,22 @@ const { db_user, db_pwd, db_host, db_name } = require("./config");
 const jobRoutes = require("./routes/job"),
   userRoutes = require("./routes/user");
 
-const mongoSrvString = `mongodb+srv://${db_user}:${db_pwd}@${db_host}/${db_name}?retryWrites=true&w=majority`;
+// Create MongoDB connection string - handle both local and cloud connections
+let mongoString;
+if (db_user && db_pwd) {
+  // For MongoDB Atlas or authenticated connections
+  mongoString = `mongodb+srv://${db_user}:${db_pwd}@${db_host}/${db_name}?retryWrites=true&w=majority`;
+} else {
+  // For local MongoDB without authentication
+  mongoString = `mongodb://${db_host}/${db_name}`;
+}
 
 // connect the database
 const db = mongoose
-  .connect(mongoSrvString, {
+  .connect(mongoString, {
     useNewUrlParser: true,
     useUnifiedTopology: true, //significant refactor of how it handles monitoring all the servers in a replica set or sharded cluster.
     //In MongoDB parlance, this is known as server discovery and monitoring.
-    useCreateIndex: true,
-    useFindAndModify: true,
   })
   .then(() => {
     console.log("Connected to mongo db");

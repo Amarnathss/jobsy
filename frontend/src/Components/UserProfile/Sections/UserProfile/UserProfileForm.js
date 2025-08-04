@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button, Form } from "react-bootstrap";
-import styles from "../../../../CSS/Form.module.css";
+import styles from "../../../../CSS/ModernForm.module.css";
 import { withTranslation } from "react-i18next";
 class UserProfileForm extends Component {
   constructor(props) {
@@ -69,7 +69,7 @@ class UserProfileForm extends Component {
     // console.log(newUser);
 
     axios
-      .post("https://backendl-lmv3.onrender.com/user/register", {
+      .post("http://localhost:3030/user/register", {
         username: this.state.username,
         phoneNumber: this.state.phoneNumber,
         aadharNumber: this.state.aadharNumber,
@@ -123,26 +123,47 @@ class UserProfileForm extends Component {
     } = this.state;
 
     return (
-      <div style={{ marginBottom: "80px" }}>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Label className={styles.CardTitle}>
-            {t("Add your profile to get hired")}
-          </Form.Label>
+      <div style={{ marginBottom: "80px", padding: "40px", background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)", minHeight: "100vh" }}>
+        {/* Form Header Section */}
+        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+          <h1 style={{ 
+            fontSize: "3rem", 
+            fontWeight: "700", 
+            background: "linear-gradient(135deg, #1F2937 0%, #374151 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            marginBottom: "15px",
+            fontFamily: "Poppins, sans-serif"
+          }}>
+            {t("Create Your Profile")}
+          </h1>
+          <p style={{ 
+            fontSize: "1.2rem", 
+            color: "#6B7280", 
+            fontWeight: "500",
+            maxWidth: "600px",
+            margin: "0 auto",
+            lineHeight: "1.6"
+          }}>
+            {t("Fill out your details below to create a professional profile and get discovered by employers")}
+          </p>
+        </div>
 
-          <Form.Group>
+        <Form onSubmit={this.handleSubmit} style={{ maxWidth: "800px", margin: "0 auto", background: "rgba(255, 255, 255, 0.9)", padding: "40px", borderRadius: "20px", boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)", backdropFilter: "blur(10px)" }}>
+          
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="username"
               value={username}
               placeholder={t("Username")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
@@ -150,14 +171,13 @@ class UserProfileForm extends Component {
               value={phoneNumber}
               placeholder={t("Phone Number")}
               maxLength="10"
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
+            <p id="phoneNumber" className={styles.ErrorMessage}>* Enter a 10 digit number</p>
           </Form.Group>
-          <p id="phoneNumber" className={styles.ErrorMessage}>* Enter a 10 digit number</p>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
@@ -165,21 +185,19 @@ class UserProfileForm extends Component {
               value={aadharNumber}
               placeholder={t("Aadhar Number")}
               maxLength="12"
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
+            <p id="aadharNumber" className={styles.ErrorMessage}>* Enter a 12 digit number</p>
           </Form.Group>
-          <p id="aadharNumber" className={styles.ErrorMessage}>* Enter a 12 digit number</p>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               as="select"
               className={styles.Input}
               name="category"
               value={category}
               defaultValue="Choose Category"
-              style={{ marginTop: "30px", marginLeft: "40px" }}
               onChange={this.handleChange}
               required
             >
@@ -197,67 +215,63 @@ class UserProfileForm extends Component {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="YOE"
               value={YOE}
               placeholder={t("Years of Experience")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="otherSkills"
               value={otherSkills}
               placeholder={t("Any Other Skill?")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="currentLocation"
               value={currentLocation}
               placeholder={t("Current Location")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="availability"
               value={availability}
               placeholder={t("Date of Availability (YYYY/MM/DD)")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               as="textarea"
               rows={4}
+              className={styles.Input}
               name="messageForRecruiter"
               value={messageForRecruiter}
               placeholder={t(
                 "Anything you want to share with the recruiter..."
               )}
-              style={{ marginTop: "35px", marginLeft: "40px" }}
               onChange={this.handleChange}
             />
           </Form.Group>

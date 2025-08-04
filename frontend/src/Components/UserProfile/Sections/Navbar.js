@@ -18,23 +18,25 @@ function navbar({ t }) {
     <Navbar fixed="top" bg="light" expand="lg" className={styles.NavBar}>
       <Navbar.Brand className={styles.Logo}>
         <Link to="/" className={styles.Brand} style={{ fontSize: "35px" }}>
-          {t("Roz")}
-          <span style={{ color: "#008dc8" }}>{t("gaar")} </span>
+          {t("Job")}
+          <span style={{ color: "#2563EB" }}>{t("sy")} </span>
         </Link>
       </Navbar.Brand>
 
-      <LanguageSelector langtype={true} />
-      <OverlayTrigger
-        placement="bottom"
-        delay={{ show: 250, hide: 400 }}
-        overlay={renderTooltip}
-      >
-        {/* Overlays: A set of components for positioning beautiful overlays, tooltips, popovers, and anything else you need. */}
-        <HiMicrophone
-          className={styles.microphone}
-          onClick={SpeechRecognition.startListening}
-        />
-      </OverlayTrigger>
+      <div className="ml-auto d-flex align-items-center" style={{ gap: "15px" }}>
+        <LanguageSelector position="navbar" />
+        <OverlayTrigger
+          placement="bottom"
+          delay={{ show: 250, hide: 400 }}
+          overlay={renderTooltip}
+        >
+          {/* Overlays: A set of components for positioning beautiful overlays, tooltips, popovers, and anything else you need. */}
+          <HiMicrophone
+            className={styles.microphone}
+            onClick={SpeechRecognition.startListening}
+          />
+        </OverlayTrigger>
+      </div>
     </Navbar>
   );
 }

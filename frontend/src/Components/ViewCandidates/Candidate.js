@@ -17,7 +17,7 @@ class Candidate extends Component {
   componentDidMount() {
     axios
       .get(
-        `https://backendl-lmv3.onrender.com/jobs/candidates/?CATEGORY=${this.props.category}`
+        `http://localhost:3030/jobs/candidates/?CATEGORY=${this.props.category}`
       )
       .then(
         (res) => {

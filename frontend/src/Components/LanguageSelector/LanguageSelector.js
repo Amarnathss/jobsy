@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./LanguageSelector.css";
 
@@ -9,11 +9,11 @@ const LanguageSelector = ({ position = "navbar" }) => {
 
   const languages = [
     { code: "en", name: "English", flag: "🇺🇸" },
-    { code: "kannada", name: "Kannada", flag: "🇮🇳" },
     { code: "hn", name: "Hindi", flag: "🇮🇳" },
     { code: "bengali", name: "Bengali", flag: "🇧🇩" },
     { code: "marathi", name: "Marathi", flag: "🇮🇳" },
     { code: "telugu", name: "Telugu", flag: "🇮🇳" },
+    { code: "kannada", name: "Kannada", flag: "🇮🇳" },
   ];
 
   const changeLanguage = (langCode, langName) => {
@@ -26,45 +26,24 @@ const LanguageSelector = ({ position = "navbar" }) => {
     setIsOpen(!isOpen);
   };
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest('.modern-language-selector')) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   return (
-    <div className={`modern-language-selector ${position}`}>
-      <div className="modern-language-button" onClick={toggleDropdown}>
+    <div className={`language-selector ${position}`}>
+      <div className="language-button" onClick={toggleDropdown}>
         <span className="globe-icon">🌐</span>
         <span className="language-text">{selectedLanguage}</span>
-        <span className={`arrow-icon ${isOpen ? "open" : ""}`}>
-          <svg width="12" height="8" viewBox="0 0 12 8" fill="currentColor">
-            <path d="M6 8L0 0h12L6 8z"/>
-          </svg>
-        </span>
+        <span className={`arrow ${isOpen ? "open" : ""}`}>▼</span>
       </div>
       
       {isOpen && (
-        <div className="modern-language-dropdown">
+        <div className="language-dropdown">
           {languages.map((lang) => (
             <div
               key={lang.code}
-              className="modern-language-option"
+              className="language-option"
               onClick={() => changeLanguage(lang.code, lang.name)}
             >
-              <span className="flag-emoji">{lang.flag}</span>
-              <span className="language-name">{lang.name}</span>
-              {selectedLanguage === lang.name && (
-                <span className="check-icon">✓</span>
-              )}
+              <span className="flag">{lang.flag}</span>
+              <span className="name">{lang.name}</span>
             </div>
           ))}
         </div>

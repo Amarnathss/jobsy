@@ -31,10 +31,10 @@ let jobSchema = new mongoose.Schema({
     maxLength: 50,
   },
   description: String,
-  offeredSalary: Number,
+  offeredSalary: String,
   numberOfPositions: {
-    type: Number,
-    default: 1,
+    type: String,
+    default: "1",
   },
   recruiterEmailId: {
     type: String,

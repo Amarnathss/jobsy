@@ -3,11 +3,11 @@
 
 .NavBar {
   margin: 0 0;
-  background-color: white !important;
+  background-color: #1F2937 !important;
 }
 
 .NavBar a {
-  color: black !important;
+  color: #FFFFFF !important;
   letter-spacing: 0px;
   font-weight: 500;
   font-size: 17px;
@@ -27,8 +27,12 @@
    height: 40px;
    width: 25px;
    cursor: pointer;
-   position: absolute;
-   right: 10px;
+   margin-left: 10px;
+   transition: transform 0.3s ease;
+}
+
+.microphone:hover {
+  transform: scale(1.1);
 }
 
 .Logo {
@@ -43,7 +47,7 @@ a:hover,
 a:active,
 a:global(.active) {
   cursor: pointer;
-  border-bottom: 2px solid #008dc8;
+  border-bottom: 2px solid #2563EB;
 }
 
 .NoUnderline:hover {
@@ -59,9 +63,9 @@ a:global(.active) {
 }
 
 .SearchButton {
-  background-color: #008dc8;
+  background-color: #FACC15;
   border: none;
-  color: white;
+  color: #1F2937;
   padding: 4px 10px 4px 10px;
   border-radius: 0px 8px 8px 0px;
   font-size: 20px;
@@ -78,7 +82,7 @@ a:global(.active) {
 }
 
 .Dropdown {
-  background-color: #008dc8;
+  background-color: #2563EB;
   border: none;
   color: #fff;
   /* margin-left: 390%; */
@@ -94,21 +98,10 @@ a:global(.active) {
   width: 256px;
 }
 
-.LangDropdown {
-  color: "white";
-  background-color: "#fff";
-}
-.LangDropdownForRegistration {
-  color: "white";
-  background-color: "#fff";
-  position: absolute;
-  right: 40px;
-
-}
 .Button {
-  background-color: #008dc8;
+  background-color: #FACC15;
   border: none;
-  color: #fff;
+  color: #1F2937;
   text-align: center;
   border-radius: 50px;
   font-size: 16px;
@@ -120,6 +113,7 @@ a:global(.active) {
   cursor: pointer;
   font-family: "Inter", sans-serif;
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  font-weight: 600;
 }
 
 .Button:hover {

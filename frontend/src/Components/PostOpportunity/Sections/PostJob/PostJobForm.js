@@ -8,7 +8,7 @@ import axios from "axios";
 // Axios: https://www.geeksforgeeks.org/axios-in-react-a-guide-for-beginners/
 // When we use fecth api to get the data of any site then using fetch() method we first get the response and then we convert that response to json. But with axios we directly get the data in the form of json
 import { Button, Form } from "react-bootstrap";
-import styles from "../../../../CSS/Form.module.css";
+import styles from "../../../../CSS/ModernForm.module.css";
 import { withTranslation } from "react-i18next";
 
 class PostJobForm extends Component {
@@ -61,7 +61,7 @@ class PostJobForm extends Component {
     else if (this.state.category === "सुरक्षा गार्ड") englishCategory = "SECURITY GUARD";
     else englishCategory = this.state.category;
     axios
-      .post("https://backendl-lmv3.onrender.com/jobs", {
+      .post("http://localhost:3030/jobs", {
         title: this.state.title,
         recruiterEmailId: this.state.recruiterEmailId,
         recruiterPhoneNumber: this.state.recruiterPhoneNumber,
@@ -112,39 +112,60 @@ class PostJobForm extends Component {
     } = this.state;
 
     return (
-      <div style={{ marginBottom: "80px" }}>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Label className={styles.CardTitle}>
-            {t("Let job seekers know you need them")}
-          </Form.Label>
+      <div style={{ marginBottom: "80px", padding: "40px", background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)", minHeight: "100vh" }}>
+        {/* Form Header Section */}
+        <div style={{ textAlign: "center", marginBottom: "40px" }}>
+          <h1 style={{ 
+            fontSize: "3rem", 
+            fontWeight: "700", 
+            background: "linear-gradient(135deg, #1F2937 0%, #374151 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            marginBottom: "15px",
+            fontFamily: "Poppins, sans-serif"
+          }}>
+            {t("Post a Job")}
+          </h1>
+          <p style={{ 
+            fontSize: "1.2rem", 
+            color: "#6B7280", 
+            fontWeight: "500",
+            maxWidth: "600px",
+            margin: "0 auto",
+            lineHeight: "1.6"
+          }}>
+            {t("Create a job posting to find the perfect candidates for your open positions")}
+          </p>
+        </div>
 
-          <Form.Group>
+        <Form onSubmit={this.handleSubmit} style={{ maxWidth: "800px", margin: "0 auto", background: "rgba(255, 255, 255, 0.9)", padding: "40px", borderRadius: "20px", boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)", backdropFilter: "blur(10px)" }}>
+          
+
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="title"
               value={title}
               placeholder={t("Your Name / Company Name")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="email"
               name="recruiterEmailId"
               value={recruiterEmailId}
               placeholder={t("Email")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
           </Form.Group>
-           {/* The <FormGroup> component wraps a form control with proper spacing, along with support for a label, help text, and validation state.  */}
-          <Form.Group>
+
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
@@ -152,21 +173,18 @@ class PostJobForm extends Component {
               value={recruiterPhoneNumber}
               placeholder={t("Contact Number")}
               maxLength="10"
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
+            <p id="recruiterPhoneNumber" className={styles.ErrorMessage}>* Enter a 10 digit number</p>
           </Form.Group>
-          <p id="recruiterPhoneNumber" className={styles.ErrorMessage}>* Enter a 10 digit number</p>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               as="select"
               className={styles.Input}
               name="category"
               value={category}
-              defaultValue="Choose Category"
-              style={{ marginTop: "30px", marginLeft: "40px" }}
               onChange={this.handleChange}
               required
             >
@@ -184,52 +202,49 @@ class PostJobForm extends Component {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               as="textarea"
               rows={4}
+              className={styles.Input}
               name="description"
               value={description}
               placeholder={t("Short Description")}
-              style={{ marginTop: "35px", marginLeft: "40px" }}
               onChange={this.handleChange}
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="location"
               value={location}
               placeholder={t("Location")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="offeredSalary"
               value={offeredSalary}
               placeholder={t("Offered Salary (Per Month)")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
           </Form.Group>
 
-          <Form.Group>
+          <Form.Group className="form-group">
             <Form.Control
               className={styles.Input}
               type="text"
               name="numberOfPositions"
               value={numberOfPositions}
               placeholder={t("No. of Positions")}
-              style={{ marginLeft: "40px", marginTop: "30px" }}
               onChange={this.handleChange}
               required
             />
