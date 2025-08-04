@@ -12,8 +12,6 @@
 
 
 
-[🚀 Live Demo](https://jobsy-demo.vercel.app) • [📖 Documentation](docs/) • [🐛 Report Bug](issues/) • [💡 Request Feature](issues/)
-
 </div>
 
 ---
