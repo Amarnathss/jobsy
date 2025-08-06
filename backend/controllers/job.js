@@ -5,11 +5,11 @@ class JobController {
 
   async getAllJobs(req, res) {
     const category = req.query.CATEGORY;
-    console.log("Reached controller");
-    console.log(category);
+    // console.log("Reached controller");
+    // console.log(category);
     try {
       let allJobs = await this.jobService.getAllJobs(category);
-      console.log("Result from controller", allJobs);
+      // console.log("Result from controller", allJobs);
       return res.status(201).json({
         jobs: allJobs,
       });
@@ -31,8 +31,8 @@ class JobController {
       numberOfPositions,
     } = req.body;
 
-    console.log("Reached controller");
-    console.log(req.body);
+    // console.log("Reached controller");
+    // console.log(req.body);
     try {
       const job = await this.jobService.createJob(
         title,
@@ -55,7 +55,7 @@ class JobController {
 
   async getAllCandidates(req, res) {
     const category = req.query.CATEGORY;
-    console.log("controller", category);
+    // console.log("controller", category);
     try {
       let allCandidates = await this.jobService.getAllCandidates(category);
       return res.status(200).json({
@@ -70,7 +70,7 @@ class JobController {
   async applyToAJob(req, res) {
     let job_id = req.params.job_id,
       aadharNumber = req.body.aadharNumber;
-    console.log("Controller", job_id, aadharNumber);
+    // console.log("Controller", job_id, aadharNumber);
     try {
       await this.jobService.applyToAJob(job_id, aadharNumber);
       return res.status(200).send("Your application has been sent");

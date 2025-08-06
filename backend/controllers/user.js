@@ -16,8 +16,8 @@ class UserController {
       messageForRecruiter,
     } = req.body;
 
-    console.log("Reached controller");
-    console.log(req.body);
+    // console.log("Reached controller");
+    // console.log(req.body);
     try {
       const user = await this.userService.createUser(
         username,

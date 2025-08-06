@@ -17,7 +17,7 @@ class Opportunity extends Component {
   componentDidMount() {
     axios
       .get(
-        `http://localhost:3030/jobs/?CATEGORY=${this.props.category}`
+        `${process.env.REACT_APP_API_URL}/jobs/?CATEGORY=${this.props.category}`
       )
       .then(
         (res) => {

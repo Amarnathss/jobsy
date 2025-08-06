@@ -61,7 +61,7 @@ class PostJobForm extends Component {
     else if (this.state.category === "सुरक्षा गार्ड") englishCategory = "SECURITY GUARD";
     else englishCategory = this.state.category;
     axios
-      .post("http://localhost:3030/jobs", {
+      .post(`${process.env.REACT_APP_API_URL}/jobs`, {
         title: this.state.title,
         recruiterEmailId: this.state.recruiterEmailId,
         recruiterPhoneNumber: this.state.recruiterPhoneNumber,

@@ -16,7 +16,7 @@ class UserManager {
     availability,
     messageForRecruiter
   ) {
-    console.log("Reached manager", availability);
+    // console.log("Reached manager", availability);
     let user = {
       username: username,
       phoneNumber: phoneNumber,
@@ -28,7 +28,7 @@ class UserManager {
       availability: availability,
       messageForRecruiter: messageForRecruiter,
     };
-    console.log("printing from manager", user);
+    // console.log("printing from manager", user);
     try {
       const newUser = await this.user.create(user);
       return newUser;

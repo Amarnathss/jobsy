@@ -6,11 +6,11 @@ class JobManager {
   }
 
   async getAllJobs(category) {
-    console.log("Reached manager", category);
+    // console.log("Reached manager", category);
     try {
-      console.log("Hello?");
+      // console.log("Hello?");
       let allJobs = await this.job.find({ category: category });
-      console.log(allJobs);
+      // console.log(allJobs);
       return allJobs;
     } catch (err) {
       console.log("ERROR IN getAllJobs JOBMANAGER");
@@ -51,7 +51,7 @@ class JobManager {
 
   async getAllCandidates(category) {
     try {
-      console.log(category);
+      // console.log(category);
       let allCandidates = await User.find({ category: category });
       return allCandidates;
     } catch (err) {
@@ -65,7 +65,7 @@ class JobManager {
     try {
       applicant = await User.findOne({ aadharNumber: aadharNumber });
       if (!applicant) {
-        console.log("Applicant not found");
+        // console.log("Applicant not found");
         let errorMessage = "Please update your profile first and then apply";
         throw errorMessage;
       }
@@ -78,7 +78,7 @@ class JobManager {
       job = await Job.findById(job_id);
       //Find recruiter email and phone number through job_id
       if (!job) {
-        console.log("job not found");
+        // console.log("job not found");
         let errorMessage = "Job doesnt exist";
         throw errorMessage;
       }
@@ -99,7 +99,7 @@ class JobManager {
       applicantYOE: applicant.YOE,
       applicantAvailability: applicant.availability,
     };
-    console.log("MANAGER", res);
+    // console.log("MANAGER", res);
     return res;
   }
 }

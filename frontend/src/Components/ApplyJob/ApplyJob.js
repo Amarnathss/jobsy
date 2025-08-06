@@ -27,7 +27,7 @@ class ApplyJob extends Component {
     // instead of axios we can also use fetch() method of javascript to fetch api
     axios
       .post(   // This post method is used to insert data in mongoDB
-        `http://localhost:3030/jobs/${this.props.jobId}/apply`,
+        `${process.env.REACT_APP_API_URL}/jobs/${this.props.jobId}/apply`,
         {
           aadharNumber: this.state.aadharNumber,
         }

@@ -7,10 +7,10 @@ class JobService {
     this.jobManager = jobManager;
   }
   async getAllJobs(category) {
-    console.log("Reached service", category);
+    // console.log("Reached service", category);
     try {
       let allJobs = await this.jobManager.getAllJobs(category);
-      console.log("Result from services", allJobs);
+      // console.log("Result from services", allJobs);
       return allJobs;
     } catch (err) {
       console.log("ERROR IN getAllJobs JOBSERVICE");
@@ -71,19 +71,19 @@ class JobService {
         applicantYOE,
         applicantAvailability,
       } = await this.jobManager.applyToAJob(job_id, aadharNumber);
-      console.log(
-        "SERVICES",
-        recruiterEmailId,
-        recruiterPhoneNumber,
-        jobCategory,
-        recruiterName,
-        applicantUsername,
-        applicantPhoneNumber,
-        applicantCategory,
-        applicantOtherSkills,
-        applicantYOE,
-        applicantAvailability
-      );
+      // console.log(
+      //   "SERVICES",
+      //   recruiterEmailId,
+      //   recruiterPhoneNumber,
+      //   jobCategory,
+      //   recruiterName,
+      //   applicantUsername,
+      //   applicantPhoneNumber,
+      //   applicantCategory,
+      //   applicantOtherSkills,
+      //   applicantYOE,
+      //   applicantAvailability
+      // );
       let msg = util.createMessageForRecruiter(
         applicantUsername,
         applicantPhoneNumber,
