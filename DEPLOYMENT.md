@@ -60,7 +60,7 @@ REACT_APP_API_URL=https://your-backend-app.ondigitalocean.app
 - Name: `jobsy-frontend`  
 - Environment: Static Site
 - Source Directory: `/frontend`
-- Build Command: `npm install && npm run build`
+- Build Command: `npm install && npm run build` (Node.js 16.x required)
 - Output Directory: `build`
 - Environment Variables:
   - `REACT_APP_API_URL`: `${jobsy-backend.PUBLIC_URL}` (DigitalOcean will auto-resolve this)
@@ -112,6 +112,10 @@ Make sure your MongoDB Atlas:
 2. **Environment Variables**: Double-check all variables are set correctly
 3. **Database Connection**: Ensure MongoDB Atlas allows DigitalOcean IPs
 4. **API Calls**: Verify all hardcoded localhost URLs are updated
+5. **Node.js Build Errors**: 
+   - If you see `digital envelope routines::unsupported` error
+   - Make sure frontend uses Node.js 16.x (specified in package.json engines)
+   - DigitalOcean should automatically use the correct Node version
 
 ### Logs:
 - View logs in DigitalOcean App Platform dashboard
