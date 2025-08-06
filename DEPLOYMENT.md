@@ -63,7 +63,7 @@ REACT_APP_API_URL=https://your-backend-app.ondigitalocean.app
 - Build Command: `npm install && npm run build`
 - Output Directory: `build`
 - Environment Variables:
-  - `REACT_APP_API_URL`: `${jobsy-backend.PUBLIC_URL}`
+  - `REACT_APP_API_URL`: `${jobsy-backend.PUBLIC_URL}` (DigitalOcean will auto-resolve this)
 
 #### Option B: Using App Spec (app.yaml)
 1. Use the provided `.do/app.yaml` file
