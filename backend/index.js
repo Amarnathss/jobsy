@@ -15,7 +15,10 @@ const jobRoutes = require("./routes/job"),
 
 // Create MongoDB connection string - handle both local and cloud connections
 let mongoString;
-if (db_user && db_pwd) {
+if (process.env.MONGODB_URI) {
+  // Use full connection string from environment variable (recommended for production)
+  mongoString = process.env.MONGODB_URI;
+} else if (db_user && db_pwd) {
   // For MongoDB Atlas or authenticated connections
   mongoString = `mongodb+srv://${db_user}:${db_pwd}@${db_host}/${db_name}?retryWrites=true&w=majority`;
 } else {
