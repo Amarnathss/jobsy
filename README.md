@@ -242,7 +242,7 @@ npm test
 
 ## 🚧 Roadmap
 
-### 🎯 Phase 1 (Current)
+### 🎯 Phase 1 (Current).
 - [x] Basic job posting and application
 - [x] SMS/Email notifications
 - [x] Multi-category support
