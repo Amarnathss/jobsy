@@ -5,6 +5,17 @@ import { Container } from "react-bootstrap";
 import styles from "../../../CSS/ModernHomePage.module.css";
 import { withTranslation } from "react-i18next";
 
+// Import job category images
+import electricianIcon from "../../../Assets/electrician.png";
+import plumberIcon from "../../../Assets/plumber.png";
+import mechanicIcon from "../../../Assets/mechanic.png";
+import cookIcon from "../../../Assets/cook.png";
+import peonIcon from "../../../Assets/peon.png";
+import driverIcon from "../../../Assets/driver.png";
+import maidIcon from "../../../Assets/maid.png";
+import siteIcon from "../../../Assets/site.png";
+import securityIcon from "../../../Assets/security.png";
+
 class KnowAbout extends Component {
   constructor() {
     super();
@@ -51,9 +62,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/electrician.png")}
+                  src={electricianIcon}
                   alt="Electrician"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain",background : "white" }}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("Electrician")}</h4>
@@ -71,7 +82,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/electrician" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="candidates/electrician" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="candidates/electrician" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
@@ -80,9 +91,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/plumber.png")}
+                  src={plumberIcon}
                   alt="Plumber"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain",background : "white" }}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("Plumber")}</h4>
@@ -100,7 +111,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/plumber" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="candidates/plumber" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="candidates/plumber" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
@@ -109,9 +120,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/mechanic.png")}
+                  src={mechanicIcon}
                   alt="Mechanic"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain",background : "white" }}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("Mechanic")}</h4>
@@ -129,7 +140,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/mechanic" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="candidates/mechanic" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="candidates/mechanic" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
@@ -138,9 +149,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/cook.png")}
+                  src={cookIcon}
                   alt="Cook"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain" ,background : "white"}}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("Cook")}</h4>
@@ -158,7 +169,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/cooking" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="candidates/cooking" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="candidates/cooking" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
@@ -167,9 +178,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/peon.png")}
+                  src={peonIcon}
                   alt="Peon"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain" ,background : "white"}}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("Peon")}</h4>
@@ -187,7 +198,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/peon" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="candidates/peon" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="candidates/peon" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
@@ -196,9 +207,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/driver.png")}
+                  src={driverIcon}
                   alt="Driver"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain",background : "white" }}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("Driver")}</h4>
@@ -216,7 +227,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/driver" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="candidates/driver" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="candidates/driver" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
@@ -225,9 +236,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/maid.png")}
+                  src={maidIcon}
                   alt="House Keeping"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain",background : "white" }}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("House Keeping")}</h4>
@@ -245,7 +256,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/housekeeping" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="/candidates/housekeeping" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="/candidates/housekeeping" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
@@ -254,9 +265,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/site.png")}
+                  src={siteIcon}
                   alt="Construction Site Workers"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain",background : "white" }}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("Construction Site Workers")}</h4>
@@ -274,7 +285,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/siteworkers" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="candidates/siteworkers" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="candidates/siteworkers" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
@@ -283,9 +294,9 @@ class KnowAbout extends Component {
             <div className={styles.categoryCard}>
               <div className={styles.categoryIcon}>
                 <img
-                  src={require("../../../Assets/security.png")}
+                  src={securityIcon}
                   alt="Security Guard"
-                  style={{ width: "40px", height: "40px", objectFit: "contain" }}
+                  style={{ width: "40px", height: "40px", objectFit: "contain",background : "white" }}
                 />
               </div>
               <h4 className={styles.categoryTitle}>{t("Security Guard")}</h4>
@@ -303,7 +314,7 @@ class KnowAbout extends Component {
                 <Link to="/jobs/securityguard" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center" }}>
                   {t("View Jobs")}
                 </Link>
-                <Link to="candidates/securityguard" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(147, 51, 234, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+                <Link to="candidates/securityguard" className={styles.sectionButton} style={{ padding: "12px 20px", fontSize: "14px", textAlign: "center", background: "linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%)", color: "white", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
                   {t("View Candidates")}
                 </Link>
               </div>
